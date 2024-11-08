@@ -45,7 +45,11 @@ export class RestaurantMenuComponent implements OnInit {
     if (storedCart) {
       this.cartItems = JSON.parse(storedCart);
       if (this.cartItems.length && this.cartItems[0].item.restaurantId !== this.restaurantId) {
-        this.clearCart();  // Clear if it’s from a different restaurant
+        const userConfirmed = confirm("Your cart contains items from another restaurant. Would you like to reset your cart for adding items from this restaurant?");
+
+        if (userConfirmed) {
+          this.clearCart(); 
+        }  // Clear if it’s from a different restaurant
       }
     }
   }

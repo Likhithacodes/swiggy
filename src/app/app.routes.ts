@@ -15,7 +15,7 @@ import { MainpageComponent } from './mainpage/mainpage.component';
 
 export const routes: Routes = [
   { path: '', component: MainpageComponent }, // Main page route
-  {path:'home',component:HomeComponent},
+  {path:'home',component:HomeComponent },
   {path:'cart',component:CartComponent},
   { path: 'search', component: SearchComponent },
   { path: 'menu/:id', component:RestaurantMenuComponent },

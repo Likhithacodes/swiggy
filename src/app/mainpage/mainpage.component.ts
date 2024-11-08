@@ -22,7 +22,7 @@ export class MainpageComponent {
     private topRestaurantsService: TopresaurantsserviceService,  // Ensure correct service name
     private router: Router
   ) {}
-
+  
   // Navigate to breakfast restaurants (Add this method)
   navigateToBreakFastRestaurants() {
     this.router.navigate(['/breakfast']);
