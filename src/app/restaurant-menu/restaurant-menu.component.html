@@ -7,13 +7,10 @@
 
 <div *ngIf="filteredItems.length > 0" class="items-container mt-4 mb-10 md:mx-52">
   <h1 class="text-xl font-semibold mb-4">Menu Items are:</h1>
-
-  <!-- Menu Card with Zoom-In and Hover Effects -->
   <mat-card 
     *ngFor="let item of filteredItems" 
     class=" pt-3 item-card flex flex-row justify-around hover:shadow-xl transition-transform duration-300 hover:scale-105 hover:bg-gray-100 rounded-lg">
 
-    <!-- Text Content Section -->
     <div >
       <mat-card-title class="text-lg font-bold">{{ item.name }}</mat-card-title>
       <mat-card-content class="text-gray-600">{{ item.description }}</mat-card-content>
@@ -30,7 +27,7 @@
 
       <!-- Add to Cart Button -->
       <button 
-        class="bg-white border border-gray-950 font-bold text-black rounded-md mx-6 my-2 py-2 transition-colors duration-200 hover:bg-gray-200"
+        class="bg-white border border-gray-950 font-bold text-black rounded-md mx-6 my-2 p-2 w-36 transition-colors duration-200 hover:bg-gray-200"
         *ngIf="!isInCart(item)" 
         (click)="addItemToCart(item)">
         Add to 🛒
@@ -38,7 +35,7 @@
 
       <!-- Favorite Buttons -->
       <button 
-        class="bg-orange-300 text-black rounded-md mx-6 my-2 p-2 transition-colors duration-200 hover:bg-orange-400"
+        class="bg-orange-300 text-black rounded-md mx-6 my-2 p-2 w-36 transition-colors duration-200 hover:bg-orange-400"
         *ngIf="!isInFavorites(item)" 
         (click)="addToFavorites(item)">
         Add to ❤️ 

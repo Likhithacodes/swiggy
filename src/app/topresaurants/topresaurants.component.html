@@ -28,12 +28,11 @@
   <div class="carousel-container" #carousel>
     <div class="carousel flex gap-4">
       <mat-card *ngFor="let card of cards" 
-                class="card group transition-transform duration-300 transform hover:scale-105">
+                class="card group transition-transform duration-300 transform hover:scale-105" (click)="onImageClick(card.id)">
         <div class="image-container relative overflow-hidden">
           <img mat-card-image 
                [src]="card.image" 
                alt="{{ card.title }}" 
-               (click)="onImageClick(card.id)" 
                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
           <p class="overlay-text absolute inset-0 flex items-center justify-center text-white font-bold text-lg opacity-0 group-hover:opacity-100 bg-black/50 transition-opacity duration-300">
             {{ card.description }}

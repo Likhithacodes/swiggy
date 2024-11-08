@@ -1,27 +1,55 @@
-# Swiggy
+# Swiggy Clone
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.9.
+This is a Swiggy clone project built using **Angular 17** and **Tailwind CSS**. The objective is to replicate the Swiggy homepage UI and provide a similar user experience, including browsing restaurants, cuisines, and managing the cart. The project also features user authentication using MockAPI.
 
-## Development server
+## Table of Contents
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Setup](#project-setup)
+- [Components](#components)
+- [Services](#services)
+- [MockAPI Integration](#mockapi-integration)
+- [How to Run](#how-to-run)
+- [Screenshots](#screenshots)
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. **Homepage UI**:
+   - Replicates the Swiggy homepage with a responsive design using Angular and Tailwind CSS.
+   - Displays 10 restaurant cards with clickable links to view detailed menus.
+   
+2. **Restaurant Menu**:
+   - Dynamic display of menu items with images, descriptions, and prices.
+   - Filtering options for `Veg` and `Non-Veg` items.
 
-## Build
+3. **Best Cuisines Near Me**:
+   - Displayed in a grid layout using data from `restaurants.service.ts`.
+   - Exactly matches the given reference design.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+4. **Cart Functionality**:
+   - Allows users to add items to the cart with a fixed cart button at the bottom.
+   - Cart data is stored in local storage, ensuring persistence across sessions.
+   - Hovering over the cart icon displays a small preview of cart items.
 
-## Running unit tests
+5. **User Authentication**:
+   - Signup and login forms integrated with MockAPI.
+   - After login, the navbar displays the username instead of the login option.
+   - User session management using local storage.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+6. **Checkout Flow**:
+   - Displays cart items with total price calculation.
+   - Prompts login if the user is not authenticated before checkout.
+   - Stores order details in MockAPI.
 
-## Running end-to-end tests
+## Tech Stack
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- **Frontend**: Angular 17, Tailwind CSS
+- **Backend**: MockAPI (for authentication and data storage)
+- **Storage**: Local Storage (for session and cart management)
 
-## Further help
+## Project Setup
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. **Install Angular CLI** (if not already installed):
+   ```bash
+   npm install -g @angular/cli

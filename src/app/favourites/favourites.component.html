@@ -1,21 +1,38 @@
 <app-navbar></app-navbar>
 <div *ngIf="favorites.length > 0" class="container mx-auto px-4 py-8">
-    <p class="text-3xl font-semibold text-center text-gray-800 mb-6">Your Favorite Items</p>
-    <div *ngFor="let item of favorites" class="mb-6 grid grid-cols-2 gap-2">
-      <mat-card class="bg-gray-200 shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-        <div class="p-4">
-          <mat-card-title class="text-xl font-bold text-gray-900">{{ item.name }}</mat-card-title>
-          <mat-card-content class="text-gray-600 text-base mt-2">{{ item.description }}</mat-card-content>
-        </div>
-        <div class="flex  p-4">
-          <img [src]="item.img" alt="{{ item.name }}" class="w-32 h-32 object-cover rounded-md shadow-md">
-        </div>
-        <div class="flex mb-4">
-          <button (click)="removeFromFavorites(item)" class="px-6 py-2 bg-red-100 text-black font-semibold text-lg rounded-md hover:bg-red-600 hover:text-white transition-colors duration-300">
-            Remove from ❤️
-          </button>
-        </div>
-      </mat-card>
-    </div>
-  </div>
+  <p class="text-3xl font-semibold text-center text-gray-800 mb-6">Your Favorite Items</p>
   
+  <div *ngFor="let item of favorites" class="mb-8 grid grid-cols-2 gap-2">
+    <!-- Mat Card with Hover Effects and Animations -->
+    <mat-card 
+      class="bg-gray-200 shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transform transition-transform duration-300 hover:scale-105 animate-fadeInUp">
+      
+      <div class="p-4">
+        <mat-card-title 
+          class="text-xl font-bold text-gray-900 transition-colors duration-300 hover:text-orange-700 animate-pulse">
+          {{ item.name }}
+        </mat-card-title>
+        <mat-card-content 
+          class="text-gray-600 text-base mt-2 transition-opacity duration-500 hover:opacity-80">
+          {{ item.description }}
+        </mat-card-content>
+      </div>
+      
+      <div class="flex p-4">
+        <img [src]="item.img" 
+             alt="{{ item.name }}" 
+             class="w-32 h-32 object-cover rounded-md shadow-md transform transition-transform duration-300 hover:scale-110 hover:rotate-1">
+      </div>
+
+      <div class="flex mb-4 justify-center">
+        <button (click)="removeFromFavorites(item)" 
+                class="px-6 py-2 bg-red-200 text-black font-semibold text-lg rounded-md 
+                       hover:bg-red-600 hover:text-white transition-all duration-300 hover:shadow-md 
+                       focus:outline-none focus:ring-4 focus:ring-red-300 transform active:scale-95">
+          Remove from ❤️
+        </button>
+      </div>
+      
+    </mat-card>
+  </div>
+</div>
