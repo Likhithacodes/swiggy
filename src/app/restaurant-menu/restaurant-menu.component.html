@@ -1,0 +1,66 @@
+<app-navbar></app-navbar>
+<div class="category-filter m-3 rounded">
+  <button (click)="filterItems('Veg')" class="filter-btn rounded bg-green-700">Veg</button>
+  <button (click)="filterItems('Non-Veg')" class="filter-btn rounded bg-red-700">Non-Veg</button>
+  <button (click)="filterItems('All')" class="filter-btn rounded bg-gray-700">All</button>
+</div>
+
+<div *ngIf="filteredItems.length > 0" class="items-container mt-4 mb-10 md:mx-52">
+  <h1 class="text-xl font-semibold mb-4">Menu Items are:</h1>
+
+  <!-- Menu Card with Zoom-In and Hover Effects -->
+  <mat-card 
+    *ngFor="let item of filteredItems" 
+    class=" pt-3 item-card flex flex-row justify-around hover:shadow-xl transition-transform duration-300 hover:scale-105 hover:bg-gray-100 rounded-lg">
+
+    <!-- Text Content Section -->
+    <div >
+      <mat-card-title class="text-lg font-bold">{{ item.name }}</mat-card-title>
+      <mat-card-content class="text-gray-600">{{ item.description }}</mat-card-content>
+      <button class="ml-4 my-2 p-2 text-white bg-gray-800 rounded">{{ item.price | currency }}</button>
+    </div>
+
+    <!-- Image and Button Section with Effects -->
+    <div class="flex flex-col justify-center items-center">
+      <img 
+        mat-card-image 
+        [src]="item.img" 
+        alt="{{ item.name }}" 
+        class="item-image h-36 w-36 m-2 rounded-lg transition-transform duration-300 hover:scale-110 hover:rotate-1 hover:brightness-110">
+
+      <!-- Add to Cart Button -->
+      <button 
+        class="bg-white border border-gray-950 font-bold text-black rounded-md mx-6 my-2 py-2 transition-colors duration-200 hover:bg-gray-200"
+        *ngIf="!isInCart(item)" 
+        (click)="addItemToCart(item)">
+        Add to 🛒
+      </button>
+
+      <!-- Favorite Buttons -->
+      <button 
+        class="bg-orange-300 text-black rounded-md mx-6 my-2 p-2 transition-colors duration-200 hover:bg-orange-400"
+        *ngIf="!isInFavorites(item)" 
+        (click)="addToFavorites(item)">
+        Add to ❤️ 
+      </button>
+      <button 
+        class="bg-gray-500 text-white rounded-md mx-6 my-2 p-2 transition-colors duration-200 hover:bg-gray-600"
+        *ngIf="isInFavorites(item)" 
+        (click)="removeFromFavorites(item)">
+        Remove from ❤️
+      </button>
+    </div>
+  </mat-card>
+</div>
+
+
+<!-- Cart Button -->
+<div *ngIf="cartItems.length > 0" class="fixed-cart-button flex flex-row justify-between text-lg" (click)="openCart()">
+  <span class="text-white px-10 py-2">{{ getTotalItems() }} items in cart</span>
+  <div class="flex flex-row py-2 space-x-2 pr-10">
+  <span class="text-white pl-10 ">Cart </span>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="">
+    <path fill="white" d="M17 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2M1 2v2h2l3.6 7.59l-1.36 2.45c-.15.28-.24.61-.24.96a2 2 0 0 0 2 2h12v-2H7.42a.25.25 0 0 1-.25-.25q0-.075.03-.12L8.1 13h7.45c.75 0 1.41-.42 1.75-1.03l3.58-6.47c.07-.16.12-.33.12-.5a1 1 0 0 0-1-1H5.21l-.94-2M7 18c-1.11 0-2 .89-2 2a2 2 0 0 0 2 2a2 2 0 0 0 2-2a2 2 0 0 0-2-2" />
+  </svg>
+</div>
+</div>

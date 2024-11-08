@@ -1,0 +1,39 @@
+.carousel-container {
+  overflow: hidden;
+  padding: 0 52px;
+
+  .carousel {
+    display: flex;
+    gap: 1.75rem; // Adjust the gap between images
+    transition: transform 0.3s ease-in-out;
+
+    img {
+      flex: 0 0 auto;
+      height: 8rem;
+      width: 8rem; // Width should fit within the visible space of 7 items
+      object-fit: cover;
+      border-radius: 50%; // Make images rounded
+    }
+  }
+}
+
+.arrow-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px; // Full circle shape
+  background-color: #e5e7eb; // Tailwind's bg-gray-200 equivalent
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #d1d5db; // Tailwind's hover:bg-gray-300 equivalent
+  }
+
+  i {
+    font-size: 1.25rem; // Tailwind's text-xl equivalent
+    color: #374151; // Tailwind's text-gray-800 equivalent
+  }
+}

@@ -1,0 +1,62 @@
+.carousel-container {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+
+.carousel {
+  display: flex;
+  gap: 16px; /* Adjust as needed */
+  transition: transform 0.3s ease-in-out;
+  flex-wrap: nowrap;
+}
+
+.card {
+  min-width: 300px; /* Match this with itemWidth in TypeScript */
+  flex-shrink: 0;
+}
+.arrow-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px; // Full circle shape
+  background-color: #e5e7eb; // Tailwind's bg-gray-200 equivalent
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #d1d5db; // Tailwind's hover:bg-gray-300 equivalent
+  }
+
+  i {
+    font-size: 1.25rem; // Tailwind's text-xl equivalent
+    color: #374151; // Tailwind's text-gray-800 equivalent
+  }
+}
+.image-container {
+  position: relative; // Set the container to relative positioning
+  width: 100%;       // Ensure it takes the full width of the card
+  overflow: hidden;  // Hide any overflow, if necessary
+
+  img {
+    width: 300px;     // Make sure the image covers the container
+    height: 200px; 
+    border-radius: 20px;   // Maintain aspect ratio
+  }
+
+  .overlay-text {
+    position: absolute;  // Position it absolutely within the container
+    bottom: 0px;        // Adjust as needed for your layout
+    left: 10px;          // Adjust as needed for your layout
+    color: white;        // Change the text color
+    // background-color: rgba(0, 0, 0, 0.5); // Optional: add a background for better visibility
+    padding: 5px;       // Add some padding
+    border-radius: 5px; // Optional: rounded corners
+    font-weight: bold;
+    font-size: 25px;
+  }
+}

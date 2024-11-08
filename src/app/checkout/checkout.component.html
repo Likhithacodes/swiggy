@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+<div class="checkout-container">
+    <h2>Checkout</h2>
+    
+    <!-- Address Form -->
+    <div>
+      <label for="address">Delivery Address:</label>
+      <input type="text" id="address" [value]="address" (input)="onAddressChange($event)" placeholder="Enter your address" />
+      <button (click)="submitAddress()">Submit Address</button>
+    </div>
+    
+    <!-- Payment Methods -->
+    <div *ngIf="address">
+      <h3>Select Payment Method</h3>
+      <button (click)="selectPaymentMethod('PayPal')">Pay with PayPal</button>
+      <button (click)="selectPaymentMethod('Stripe')">Pay with Stripe</button>
+      <!-- Add more payment methods here -->
+    </div>
+    
+    <div *ngIf="paymentMethod">
+      <p>Redirecting to {{ paymentMethod }}...</p>
+    </div>
+    
+    <div>
+      <p>Total: ₹ {{ totalAmount }}</p>
+    </div>
+  </div>
+  

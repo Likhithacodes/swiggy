@@ -1,0 +1,86 @@
+<!-- Container for the carousel and buttons -->
+ <div class="pb-10 mt-4">
+<div class="flex flex-col md:flex-row justify-between items-center  ">
+  <!-- Container for the centered text -->
+  <div class="container m-4 md:mb-0 flex flex-row justify-between">
+    <p class="text-gray-950 text-xl md:text-2xl font-semibold">
+      What's on your mind?
+    </p>
+    <div class="flex space-x-2">
+      <!-- Left Arrow Button -->
+      <button 
+        (click)="moveLeft()" 
+        class="arrow-button bg-gray-200 hover:bg-gray-300"
+        [ngClass]="{'bg-gray-400 text-gray-600 cursor-not-allowed': isAtStart, 'hover:bg-gray-300': !isAtStart}"
+        [disabled]="isAtStart"
+      >
+        <i>&larr;</i>
+      </button>
+      
+      <!-- Right Arrow Button -->
+      <button 
+        (click)="moveRight()" 
+        class="arrow-button bg-gray-200 hover:bg-gray-300"
+        [ngClass]="{'bg-gray-400 text-gray-600 cursor-not-allowed': isAtEnd, 'hover:bg-gray-300': !isAtEnd}"
+        [disabled]="isAtEnd"
+      >
+        <i>&rarr;</i>
+      </button>
+    </div>
+  </div>
+
+  
+</div>
+
+<!-- Carousel Container -->
+<div class="carousel-container overflow-hidden mx-4 sm:mx-8 mt-6 md:mt-12">
+  <div #carousel class="carousel flex gap-2 sm:gap-4 md:gap-6">
+    
+    <!-- Image Items with Zoom-In Hover Effect -->
+    <img src="assets/biryani.jpg" alt="Biryani" 
+         class="rounded-full shadow-md w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 transition-transform duration-300 hover:scale-110">
+    
+    <img src="assets/pizza.jpg" alt="Pizza" 
+         class="rounded-full shadow-md w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 transition-transform duration-300 hover:scale-110">
+    
+    <img src="assets/shawarma.jpg" alt="Shawarma" 
+         class="rounded-full shadow-md w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 transition-transform duration-300 hover:scale-110">
+    
+    <img src="../../assets/burger" alt="Burger" 
+         class="rounded-full shadow-md w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 transition-transform duration-300 hover:scale-110">
+    
+    <img src="assets/shake.jpg" alt="Shake" 
+         class="rounded-full shadow-md w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 transition-transform duration-300 hover:scale-110">
+    
+    <img src="assets/noodles.jpg" alt="Noodles" 
+         class="rounded-full shadow-md w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 transition-transform duration-300 hover:scale-110">
+    
+    <img src="assets/momos.jpg" alt="Momos" 
+         class="rounded-full shadow-md w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 transition-transform duration-300 hover:scale-110">
+    
+    <img src="assets/samosa.jpg" alt="Samosa" 
+         class="rounded-full shadow-md w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 transition-transform duration-300 hover:scale-110">
+    
+    <img src="assets/idli.jpg" alt="Idli" 
+         class="rounded-full shadow-md w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 transition-transform duration-300 hover:scale-110">
+    
+    <img src="assets/dosa.jpg" alt="Dosa" 
+         class="rounded-full shadow-md w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 transition-transform duration-300 hover:scale-110">
+    
+    <img src="assets/voda.jpg" alt="Voda" 
+         class="rounded-full shadow-md w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 transition-transform duration-300 hover:scale-110">
+    
+    <img src="assets/cake.jpg" alt="Cake" 
+         class="rounded-full shadow-md w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 transition-transform duration-300 hover:scale-110">
+    
+    <img src="assets/chinese.jpg" alt="Chinese" 
+         class="rounded-full shadow-md w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 transition-transform duration-300 hover:scale-110">
+    
+    <img src="assets/pakoda.jpg" alt="Pakoda" 
+         class="rounded-full shadow-md w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 transition-transform duration-300 hover:scale-110">
+    
+  </div>
+</div>
+
+</div>
+

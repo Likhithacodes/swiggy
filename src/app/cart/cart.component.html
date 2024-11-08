@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<div *ngIf="cartItems.length > 0; else emptyCart" class="p-6 bg-gray-800 text-white rounded-lg shadow-lg  mx-auto w-2/3">
+  <!-- Cart Items List -->
+  <div *ngFor="let cartItem of cartItems; let i = index" class="border-b border-gray-700 pb-6 mb-6 space-y-4">
+    <div class="flex items-start space-x-4">
+      <div class="flex-grow">
+        <p class="font-bold text-xl">{{ cartItem.item.name }}</p>
+        <p class="text-sm text-gray-300">{{ cartItem.item.description }}</p>
+        <p class="mt-2 text-yellow-500 font-semibold">
+          Price: ₹{{ cartItem.item.price }} × {{ cartItem.count }} = ₹{{ cartItem.item.price * cartItem.count }}
+        </p>
+        <div class="flex items-center space-x-2 mt-4">
+          <button (click)="decrementItem(i)" class="px-3 py-1 bg-gray-700 text-white rounded hover:bg-gray-600 transition">
+            -
+          </button>
+          <span class="text-lg">{{ cartItem.count }}</span>
+          <button (click)="incrementItem(i)" class="px-3 py-1 bg-gray-700 text-white rounded hover:bg-gray-600 transition">
+            +
+          </button>
+          <button (click)="removeItem(i)" class="px-3 py-1 bg-red-600 text-white rounded ml-4 hover:bg-red-500 transition">
+            Remove
+          </button>
+        </div>
+      </div>
+      <div class="flex-shrink-0">
+        <img [src]="cartItem.item.img" alt="cart item image" class="w-48 h-48 rounded-lg border border-gray-700">
+      </div>
+    </div>
+
+    
+  </div>
+
+  <!-- Total and Checkout Section -->
+  <div class="flex justify-between items-center mt-6">
+    <p class="text-lg font-semibold">Total: ₹{{ totalAmount }}</p>
+    <button (click)="checkout()" class="bg-yellow-600 text-white py-2 px-6 rounded-lg shadow-md hover:bg-yellow-500 transition duration-200">
+      Checkout
+    </button>
+  </div>
+</div>
+
+<!-- Empty Cart Message -->
+<ng-template #emptyCart>
+  <p class="text-center text-lg mt-8 text-gray-400">Your cart is empty.</p>
+</ng-template>
